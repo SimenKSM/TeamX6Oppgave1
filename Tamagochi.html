@@ -157,7 +157,7 @@
             HTML += /*HTML*/ `
             <div class="egg">
                 <div class="screen">
-                    <div><p id="potato" class="image" style="background:${image}-${positionY}${px}${positionx}-${px}"></p></div>
+                    <div><p id="potato" class="image" style="background:${image} -${positionY}${px} -${positionx}${px}"></p></div>
                     <div class="bars">
                         <div id="bar1" class="barred" style="width:${width1}${px}">HP</div><br>
                         <br>
@@ -185,16 +185,22 @@
 
         function feedMe() {
             width1 = 100;
+            positionY = 11;
+            positionx = 15;
             show()
         }
         function playMe() {
             width2 = 100;
             show()
+            positionY = 11;
+            positionx = 15;
 
         }
         function waterMe() {
             width3 = 100;
             show()
+            positionY = 11;
+            positionx = 15;
 
 
         }
@@ -214,19 +220,27 @@
             else if (speed1 === 'one') {
                 width1--;
                 if (width1 == 50 || width1 == 25) {
+
                     alert("hp is low feed me")
+                    positionY = 290;
+                    positionx = 577;
+                    show();
                 }
             }
             else if (speed1 === 'two') {
                 width2--;
                 if (width2 == 50 || width2 == 25) {
                     alert("I am thirsty water please")
+                    positionY = 15;
+                    positionx = 155;
                 }
             }
             else if (speed1 === 'three') {
                 width3--;
                 if (width3 == 50 || width3 == 25) {
                     alert("Happiness is low play with me!")
+                    positionY = 15;
+                    positionx = 436;
                 }
             }
             show()
