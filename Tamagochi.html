@@ -37,7 +37,7 @@
             height: 200px;
             width: 400px;
             border: double;
-            box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
+            box-shadow: inset 0px 0px 15px 5px #000000;
         }
 
         .text {
@@ -205,13 +205,16 @@
 
         }
         function evolveMe() {
-
+            image = "url('img/Raichu.png')"
+            show()
         }
         function increments(speed1) {
             if (width1 == 0 || width2 == 0 || width3 == 0) {
                 clearInterval(interval1);
                 clearInterval(interval2);
                 clearInterval(interval3);
+                positionY = 426;
+                positionx = 436
             }
                 
             
@@ -239,7 +242,7 @@
                 width3--;
                 if (width3 == 50 || width3 == 25) {
                     alert("Happiness is low play with me!")
-                    positionY = 15;
+                    positionY = 150;
                     positionx = 436;
                 }
             }
