@@ -12,9 +12,13 @@
             justify-content: center;
             background-image: url(https://64.media.tumblr.com/f1225ce9e28490e75d76ec374fb60ae4/1c2840d12fd5d899-c8/s1280x1920/56443630016b0345f622518e813b103400bace6f.jpg);
             background-size: cover;
+            user-select: none;
+
         }
 
         .egg {
+            box-shadow: 0px 0px 15px 5px #000000;
+            background-color: bisque;
             flex-direction: column;
             align-items: center;
             display: flex;
@@ -23,13 +27,16 @@
             border-radius: 50%;
             border-color: black;
             border: double;
+
         }
 
         .screen {
+            background-color: #FFFFFF;
             margin-top: 150px;
             height: 200px;
             width: 400px;
             border: double;
+            box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
         }
 
         .text {
@@ -58,14 +65,16 @@
             display: inline-block;
             height: 40px;
             width: 80px;
+            cursor: pointer;
         }
 
         button:hover {
-            background: #FFFFFF;
+            background: lightblue;
         }
 
         button:active {
-            background: #FFFFFF;
+            background: lightblue;
+            box-shadow: none;
         }
 
 
@@ -101,6 +110,7 @@
             position: absolute;
             max-width: 100px;
         }
+
         .barpurple {
             background-color: green;
             height: 20px;
@@ -108,12 +118,12 @@
             position: absolute;
             max-width: 100px;
         }
+
         .image {
             background: url('img/Pikachu.png') 0px 0px;
-            height:129px;
-            width:125px;
+            height: 129px;
+            width: 125px;
         }
-    
     </style>
 </head>
 
@@ -132,16 +142,17 @@
             let HTML = '';
             HTML += /*HTML*/ `
             <div class="egg">
-                <div class="screen"></div>
+                <div class="screen">
+                    <div><p class="image"></p></div>
+                </div>
                 <div class="text">
-                    <button>Feed</button>
-                    <button>Play</button>
-                    <button>Water</button>
-                    <button>Evolve!</button>
+                    <button onclick="feedMe()">Feed</button>
+                    <button onclick="playMe()">Play</button>
+                    <button onclick="waterMe()">Water</button>
+                    <button onclick="evolveMe()">Evolve!</button>
                     </div>
-                    test
+                    
                 
-                <div><p class="image"></p></div>
                 </div>
 
             
@@ -151,6 +162,18 @@
 
         //Controller
 
+        function feedMe() {
+
+        }
+        function playMe() {
+
+        }
+        function waterMe() {
+
+        }
+        function evolveMe() {
+
+        }
 
     </script>
 
