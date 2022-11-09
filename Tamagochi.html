@@ -18,9 +18,9 @@
         .egg {
             box-shadow: 0px 0px 15px 5px #000000;
             background-color: bisque;
+            display: flex;
             flex-direction: column;
             align-items: center;
-            display: flex;
             height: 800px;
             width: 600px;
             border-radius: 50%;
@@ -30,7 +30,9 @@
         }
 
         .screen {
-            background-color: #FFFFFF;
+            display: flex;
+            align-content: flex-start;
+            background-color: #7edc95;
             margin-top: 150px;
             height: 200px;
             width: 400px;
@@ -45,6 +47,11 @@
             height: 200px;
             width: 400px;
 
+        }
+
+        .bars {
+            margin: 50px;
+            margin-left: 70px;
         }
 
         button {
@@ -89,7 +96,6 @@
         .baryellow {
             background-color: yellow;
             height: 20px;
-            width: 100px;
             position: absolute;
             max-width: 100px;
         }
@@ -97,7 +103,6 @@
         .barred {
             background-color: red;
             height: 20px;
-            width: 100px;
             position: absolute;
             max-width: 100px;
         }
@@ -105,7 +110,6 @@
         .bargreen {
             background-color: green;
             height: 20px;
-            width: 100px;
             position: absolute;
             max-width: 100px;
         }
@@ -119,7 +123,8 @@
         }
 
         .image {
-            background: url('img/Pikachu.png') 0px 0px;
+            margin-top: 35px;
+            margin-left: 60px;
             height: 129px;
             width: 125px;
         }
@@ -131,23 +136,40 @@
     <script>
         //Model
         let widthBar = '';
-
+        let width1 = 100;
+        let width2 = 100;
+        let width3 = 100;
+        let px = 'px';
+        let interval1;
+        let interval2;
+        let interval3;
+        let filling = 30;
+        let image = "url('img/Pikachu.png')";
+        let positionY = 11;
+        let positionx = 15;
 
 
         //View
-
-        show()
+        start()
+        increments()
         function show() {
             let HTML = '';
             HTML += /*HTML*/ `
             <div class="egg">
                 <div class="screen">
-                    <div><p class="image"></p></div>
+                    <div><p id="potato" class="image" style="background:${image}-${positionY}${px}${positionx}-${px}"></p></div>
+                    <div class="bars">
+                        <div id="bar1" class="barred" style="width:${width1}${px}">HP</div><br>
+                        <br>
+                        <div id="bar2" class="bargreen" style="width:${width2}${px}">Water</div><br>
+                        <br>
+                        <div id="bar3" class="baryellow" style="width:${width3}${px}">Happiness</div>
+                    </div>
                 </div>
                 <div class="text">
                     <button onclick="feedMe()">Feed</button>
-                    <button onclick="playMe()">Play</button>
-                    <button onclick="waterMe()">Water</button>
+                    <button onclick="playMe()">Water</button>
+                    <button onclick="waterMe()">Play</button>
                     <button onclick="evolveMe()">Evolve!</button>
                     </div>
                     
@@ -162,20 +184,66 @@
         //Controller
 
         function feedMe() {
-
+            width1 = 100;
+            show()
         }
         function playMe() {
+            width2 = 100;
+            show()
 
         }
         function waterMe() {
+            width3 = 100;
+            show()
+
 
         }
         function evolveMe() {
 
         }
+        function increments(speed1) {
+            if (width1 == 0 || width2 == 0 || width3 == 0) {
+                clearInterval(interval1);
+                clearInterval(interval2);
+                clearInterval(interval3);
+            }
+                
+            
+                    
+            
+            else if (speed1 === 'one') {
+                width1--;
+                if (width1 == 50 || width1 == 25) {
+                    alert("hp is low feed me")
+                }
+            }
+            else if (speed1 === 'two') {
+                width2--;
+                if (width2 == 50 || width2 == 25) {
+                    alert("I am thirsty water please")
+                }
+            }
+            else if (speed1 === 'three') {
+                width3--;
+                if (width3 == 50 || width3 == 25) {
+                    alert("Happiness is low play with me!")
+                }
+            }
+            show()
+
+
+        }
+
+        function start() {
+            clearInterval(interval1);
+            clearInterval(interval2);
+            clearInterval(interval3);
+            interval1 = setInterval(increments, 1000, 'one')
+            interval2 = setInterval(increments, 4000, 'two')
+            interval3 = setInterval(increments, 1500, 'three')
+        }
 
     </script>
-
 </body>
 
 </html>
